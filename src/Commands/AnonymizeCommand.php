@@ -5,6 +5,7 @@ use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 use ReflectionClass;
+use will2therich\LaravelModelAnonymizer\Contracts\AnonymizeInterface;
 
 class AnonymizeCommand extends Command
 {
@@ -59,7 +60,7 @@ class AnonymizeCommand extends Command
     function getAllClassesInAnonymizeFolder()
     {
         $namespace = 'App\\Anonymize\\';  // Adjust the namespace based on your actual namespace structure
-        $interface = \Contracts\AnonymizeInterface::class;
+        $interface = AnonymizeInterface::class;
         $dir = app_path('Anonymize');     // Path to the Anonymize folder within the app directory
         $classes = [];
 
@@ -74,7 +75,7 @@ class AnonymizeCommand extends Command
             if (class_exists($class)) {
                 try {
                     $reflection = new ReflectionClass($class);
-                    if ($reflection->isInstantiable() && $reflection->implementsInterface($interface)) {
+                    if ($reflection->isInstantiable() && $reflection->hasMethod('anonymize') && $reflection->implementsInterface($interface)) {
                         $classes[] = $class;
                     }
                 } catch (\ReflectionException $e) {
