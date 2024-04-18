@@ -1,0 +1,27 @@
+{
+  "name": "will2therich/laravel-model-anonymizer",
+  "description": "Declare Model Anonymize Classes To Help Anonymize Data.",
+  "keywords": ["php", "laravel", "anonymization", "models", "eloquent"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "William Rich",
+      "email": "william.rich@weblabs.dev"
+    }
+  ],
+  "require": {
+    "laravel/framework": "^9.0|^10.0|^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "will2therich\\LaravelModelAnonymizer\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "will2therich\\LaravelModelAnonymizer\\ServiceProvider"
+      ]
+    }
+  }
+}
