@@ -1,3 +1,5 @@
+![LaravelModelAnonymizer](https://github.com/will2therich/laravel-model-anonymizer/assets/24435180/36bd8957-85ca-4df4-96e1-fdf147ed1171)
+
 # LaravelModelAnonymizer
 
 LaravelModelAnonymizer is a Laravel package designed to help developers anonymize existing data in their models. This is particularly useful for creating non-production datasets where sensitive information needs to be obscured without affecting the integrity of the application data.
