@@ -53,12 +53,28 @@ class InstallCommand extends Command
 
     public function handle()
     {
-        $dir = $this->laravel->appPath() . '/Anonymize';
+        $dir = app_path('Anonymize');
 
         $this->createDirectory($dir);
         $this->composer->dumpAutoloads();
 
         $this->info("Installation completed");
+    }
+
+    /**
+     * Create directory for model anonymizers.
+     *
+     * @param string $dir
+     */
+    protected function createDirectory($dir)
+    {
+        if ($this->files->isDirectory($dir)) {
+            $this->error("Directory {$dir} already exists");
+
+            return;
+        }
+
+        $this->files->makeDirectory($dir);
     }
 
 }

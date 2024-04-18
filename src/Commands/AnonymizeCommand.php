@@ -30,7 +30,7 @@ class AnonymizeCommand extends Command
      */
     public function handle()
     {
-        if ($this->laravel->env("APP_ENV") !== 'production') {
+        if (env("APP_ENV") !== 'production') {
             $services = $this->getAllClassesInAnonymizeFolder();
             foreach ($services as $service) {
                 $anonymizer = new $service;
@@ -60,7 +60,7 @@ class AnonymizeCommand extends Command
     {
         $namespace = 'App\\Anonymize\\';  // Adjust the namespace based on your actual namespace structure
         $interface = \Contracts\AnonymizeInterface::class;
-        $dir = $this->laravel->appPath('Anonymize');     // Path to the Anonymize folder within the app directory
+        $dir = app_path('Anonymize');     // Path to the Anonymize folder within the app directory
         $classes = [];
 
         // Scan files in the directory
