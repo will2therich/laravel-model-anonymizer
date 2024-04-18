@@ -7,7 +7,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Symfony\Component\Console\Input\InputOption;
 
-class InstallCommand
+class InstallCommand extends Command
 {
     /**
      * The console command name.
